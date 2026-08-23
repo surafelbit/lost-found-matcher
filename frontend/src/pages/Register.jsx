@@ -1,4 +1,4 @@
-﻿import React, { useState } from "react";
+import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import { User, Mail, Lock, UserPlus, AlertCircle } from "lucide-react";
@@ -21,7 +21,7 @@ export default function Register() {
     const { error: err } = await register(form);
     setLoading(false);
     if (err) { setError(err); return; }
-    navigate("/reports", { replace: true });
+    navigate("/my-reports", { replace: true });
   };
 
   return (

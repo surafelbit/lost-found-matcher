@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useCallback } from 'react';
+import { Link } from 'react-router-dom';
 import { api } from '../api';
 import { useAuth } from '../context/AuthContext';
-import { FileText, AlertCircle, Search } from 'lucide-react';
+import { FileText, AlertCircle, Search, PlusCircle } from 'lucide-react';
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 
@@ -347,12 +348,20 @@ export default function MyReports() {
       )}
 
       {!loading && !error && matches.length === 0 && (
-        <div className="text-center py-16 rounded-2xl" style={{ background: 'var(--color-surface)', border: '1px solid var(--color-border)' }}>
+        <div className="text-center py-16 px-4 rounded-2xl" style={{ background: 'var(--color-surface)', border: '1px solid var(--color-border)' }}>
           <FileText className="w-12 h-12 mx-auto mb-4" style={{ color: 'var(--color-text-muted)' }} />
-          <p className="font-semibold mb-1" style={{ color: 'var(--color-text-primary)' }}>No matches found yet</p>
-          <p className="text-sm mb-4" style={{ color: 'var(--color-text-secondary)' }}>
-            We'll keep looking. Check back later to see if your items find a match!
+          <p className="font-semibold text-lg mb-1" style={{ color: 'var(--color-text-primary)' }}>No matches found yet</p>
+          <p className="text-sm mb-6 max-w-md mx-auto" style={{ color: 'var(--color-text-secondary)' }}>
+            We'll keep looking for matches in the background. Have an item you've lost or found? Submit a report now!
           </p>
+          <Link
+            to="/submit"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-semibold text-white transition-all hover:-translate-y-0.5 hover:shadow-lg shadow-sm"
+            style={{ background: '#002045' }}
+          >
+            <PlusCircle className="w-4 h-4" />
+            Report Lost / Found Item
+          </Link>
         </div>
       )}
 

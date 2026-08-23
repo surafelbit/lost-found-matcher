@@ -105,6 +105,7 @@ function AppShell() {
           <Routes>
             <Route path="/"            element={<Home />} />
             <Route path="/home"        element={<Home />} />
+            <Route path="/reports"     element={<Navigate to="/my-reports" replace />} />
             <Route path="/submit"      element={<ProtectedRoute><div className="max-w-container-max mx-auto px-gutter py-xl w-full"><Submit /></div></ProtectedRoute>} />
             <Route path="/my-reports"  element={<ProtectedRoute><div className="max-w-container-max mx-auto px-gutter py-xl w-full"><MyReports /></div></ProtectedRoute>} />
           </Routes>

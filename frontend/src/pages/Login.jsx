@@ -1,4 +1,4 @@
-﻿import React, { useState } from "react";
+import React, { useState } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import { Mail, Lock, LogIn, AlertCircle } from "lucide-react";
@@ -7,7 +7,7 @@ export default function Login() {
   const { login } = useAuth();
   const navigate  = useNavigate();
   const location  = useLocation();
-  const from      = location.state?.from || "/reports";
+  const from      = location.state?.from || "/my-reports";
 
   const [form, setForm]   = useState({ email: "", password: "" });
   const [error, setError] = useState("");
