@@ -1,0 +1,159 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Design System Variables ─────────────────────────────────────────────── */
+:root {
+  --color-bg: #faf9f7;
+  --color-surface: #ffffff;
+  --color-surface-raised: #f5f3ef;
+  --color-border: #e8e4dc;
+  --color-text-primary: #1e1b4b;
+  --color-text-secondary: #6b6890;
+  --color-text-muted: #9896ae;
+  --color-accent: #f59e0b;
+  --color-indigo: #4f46e5;
+  --color-indigo-dark: #1e1b4b;
+
+  /* Tier colors */
+  --color-strong: #059669;
+  --color-strong-bg: #d1fae5;
+  --color-possible: #d97706;
+  --color-possible-bg: #fef3c7;
+  --color-weak: #64748b;
+  --color-weak-bg: #f1f5f9;
+}
+
+/* ── Base ────────────────────────────────────────────────────────────────── */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'DM Sans', system-ui, sans-serif;
+  background-color: var(--color-bg);
+  color: var(--color-text-primary);
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Typography ──────────────────────────────────────────────────────────── */
+.font-display {
+  font-family: 'Fraunces', Georgia, serif;
+}
+
+/* ── Card animations ─────────────────────────────────────────────────────── */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.3s ease-out both;
+}
+
+/* Stagger children */
+.animate-fade-in-up:nth-child(1) { animation-delay: 0ms; }
+.animate-fade-in-up:nth-child(2) { animation-delay: 60ms; }
+.animate-fade-in-up:nth-child(3) { animation-delay: 120ms; }
+.animate-fade-in-up:nth-child(4) { animation-delay: 180ms; }
+.animate-fade-in-up:nth-child(5) { animation-delay: 240ms; }
+.animate-fade-in-up:nth-child(6) { animation-delay: 300ms; }
+.animate-fade-in-up:nth-child(7) { animation-delay: 360ms; }
+.animate-fade-in-up:nth-child(8) { animation-delay: 420ms; }
+.animate-fade-in-up:nth-child(9) { animation-delay: 480ms; }
+.animate-fade-in-up:nth-child(10) { animation-delay: 540ms; }
+
+/* ── Tier badge sticker effect ───────────────────────────────────────────── */
+.tier-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 10px;
+  border-radius: 3px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-family: 'DM Sans', sans-serif;
+}
+
+.tier-badge.strong {
+  background: var(--color-strong-bg);
+  color: var(--color-strong);
+  border-left: 3px solid var(--color-strong);
+}
+
+.tier-badge.possible {
+  background: var(--color-possible-bg);
+  color: var(--color-possible);
+  border-left: 3px solid var(--color-possible);
+}
+
+.tier-badge.weak {
+  background: var(--color-weak-bg);
+  color: var(--color-weak);
+  border-left: 3px solid var(--color-weak);
+}
+
+/* ── Score bar ───────────────────────────────────────────────────────────── */
+.score-bar-track {
+  height: 4px;
+  background: #e5e7eb;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.score-bar-fill {
+  height: 100%;
+  border-radius: 2px;
+  transition: width 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* ── Form inputs ─────────────────────────────────────────────────────────── */
+.form-input {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1.5px solid var(--color-border);
+  border-radius: 8px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.9375rem;
+  color: var(--color-text-primary);
+  background: var(--color-surface);
+  transition: border-color 0.15s, box-shadow 0.15s;
+  outline: none;
+}
+
+.form-input:focus {
+  border-color: var(--color-indigo);
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.12);
+}
+
+.form-input.error {
+  border-color: #ef4444;
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+}
+
+textarea.form-input {
+  resize: vertical;
+  min-height: 90px;
+}
+
+/* ── Scrollbar ───────────────────────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 3px;
+}
