@@ -9,7 +9,7 @@ const { Pool } = pg;
 // Defaults assume a local Postgres instance with the lostfound database.
 const pool = new Pool(
   process.env.DATABASE_URL
-    ? {
+    ? { 
         connectionString: process.env.DATABASE_URL,
         ssl: process.env.NODE_ENV === 'production' ? { rejectUnauthorized: false } : false,
       }

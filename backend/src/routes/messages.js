@@ -4,7 +4,6 @@ import { requireAuth } from '../middleware/auth.js';
 
 const router = express.Router();
 
-// Helper to ensure the user is part of the conversation
 async function verifyAccess(req, res, lostId, foundId) {
   const userId = req.user.userId;
   
